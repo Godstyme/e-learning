@@ -17,29 +17,14 @@ require_once '../server/classes/fetchData.php';
                       <label for="exampleInputName" class="form-label">Course Code:</label>
                       <input type="text" class="form-control" id="exampleInputNae" aria-describedby="nameHelp" name="ccode" required>
                     </div>
-                    <div class="mb-3">            
-                      <label>Select Level</label>
-                      <select name="level" class="form-control form-control-line" required>
-                          <option value="Year One">Year One</option>
-                          <option value="Year Two">Year Two</option>
-                          <option value="Year Three">Year Three</option>
-                          <option value="Year Four">Year Four</option>
-                      </select>
-                  </div>
-                    <div class="form-group mb-3">            
-                      <label>Select Semester</label>
-                      <select name="semester" class="form-control form-control-line" required>
-                          <option value="First Semester">First Semester</option>
-                          <option value="Second Semester">Second Semester</option>
-                      </select>
-                  </div>
-                  <div class="mb-3">
-                    <label for="exampleInputName" class="form-label">Course Unit:</label>
-                    <input type="text" class="form-control" id="exampleInptName" aria-describedby="nameHelp" name="cunit" required>
-                  </div>
-                  <div class="form-group mt-3">
-                    <button class="btn btn-primary submitbtn text-light btn-rounded waves-effect waves-light m-b-40" name="btnAdd" type="submit">Upload Course</button>
-                  </div>
+                  
+                    <div class="mb-3">
+                      <label for="exampleInputName" class="form-label">Course Unit:</label>
+                      <input type="text" class="form-control" id="exampleInptName" aria-describedby="nameHelp" name="cunit" required>
+                    </div>
+                    <div class="form-group mt-3">
+                      <button class="btn btn-primary submitbtn text-light btn-rounded waves-effect waves-light m-b-40" name="btnAdd" type="submit">Upload Course</button>
+                    </div>
                   </form>
               </div>
             </div>
@@ -55,8 +40,6 @@ require_once '../server/classes/fetchData.php';
                                 <th scope="col">S/N</th>
                                 <th scope="col">Course Title</th>
                                 <th scope="col">Course Code</th>
-                                <th scope="col">Level</th>
-                                <th scope="col">Semester</th>
                                 <th scope="col">Course Unit</th>
                                 <th scope="col">Delete</th>
                               </tr>
@@ -77,8 +60,6 @@ require_once '../server/classes/fetchData.php';
                               <th scope="row"><?php echo $count; ?></th>
                               <td><?php echo $row['coursetitle']?></td>
                               <td><?php echo $row['coursecode']?></td>
-                              <td><?php echo $row['level']?></td>
-                              <td><?php echo $row['semester']?></td>
                               <td><?php echo $row['unit']?></td>
                               <td><a href="" class="btn btn-danger ti-trash" style="color:#F2F2F2">Remove</a></td>
                             </tr>

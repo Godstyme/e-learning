@@ -154,11 +154,9 @@
 			if ($_SERVER["REQUEST_METHOD"] == "POST") {
 				$ctitle = $proccessData->processInput($_POST['ctitle']);
 				$ccode = $proccessData->processInput($_POST['ccode']);
-				$level = $proccessData->processInput($_POST['level']);
-				$semester = $proccessData->processInput($_POST['semester']);
 				$cunit = $proccessData->processInput($_POST['cunit']);
 							
-				$insertResponse = $insertData->addCourses($ctitle,$ccode,$level,$semester,$cunit);
+				$insertResponse = $insertData->addCourses($ctitle,$ccode,$cunit);
 				if ($insertResponse['status']) {
 					$response = array('status'=>1,'message'=>"Courses was successfully uploaded...");
 							

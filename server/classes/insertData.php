@@ -41,11 +41,11 @@ class insertData extends DbConnection {
     }
 
     // addition of courses
-    public function addCourses($coursetitle,$coursecode,$level,$semester,$unit) {
-        $sql = "INSERT INTO course(coursetitle,coursecode,level,semester,unit) VALUES(:coursetitle,:coursecode,:level,:semester,:unit)";
+    public function addCourses($coursetitle,$coursecode,$unit) {
+        $sql = "INSERT INTO course(coursetitle,coursecode,unit) VALUES(:coursetitle,:coursecode,:unit)";
 
         $query = $this->connection->prepare($sql);
-        $exec = $query->execute(array(':coursetitle'=>$coursetitle, ':coursecode'=>$coursecode, ':level'=>$level, ':semester'=>$semester,':unit'=>$unit));
+        $exec = $query->execute(array(':coursetitle'=>$coursetitle, ':coursecode'=>$coursecode, ':unit'=>$unit));
         
         if ($query->errorCode() == 0) {
             return array('status'=>1);
@@ -78,6 +78,16 @@ class insertData extends DbConnection {
             return array('status'=>0, 'message'=>$query->errorInfo());
         }
     }
-    
+    // student course registration table 
+    public function setAcademicSession($batch,$date){
+        $sql = "INSERT INTO classbatch (batch,date) VALUES (:batch,:date)";
+        $query = $this->connection->prepare($sql);
+        $exec = $query->execute(array(':batch'=>$batch, ':date'=> $date));
+        if ($query->errorCode()==0) {
+            return array('status'=>1);
+        }else{
+            return array('status'=>0, 'message'=>$query->errorInfo());
+        }
+    }
 }
 ?>

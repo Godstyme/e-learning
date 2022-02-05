@@ -68,8 +68,8 @@
                             </a>
                           </li>
                           <li>
-                            <a href="#" class="nav-link px-sm-0 px-2 text-dark">
-                              <i class="fas fa-clock"></i><span class="ms-1 d-none d-sm-inline">Manage Timetable</span> 
+                            <a href="index.php?a=session&b=academics" class="nav-link px-sm-0 px-2 text-dark">
+                              <i class="fas fa-book-open"></i><span class="ms-1 d-none d-sm-inline">Manage Academic Session</span> 
                             </a>
                           </li>
                           <li>
@@ -84,11 +84,6 @@
                               <span class="d-none d-sm-inline mx-1"><?php echo  $_SESSION['email'];?></span>
                           </a>
                           <ul class="dropdown-menu dropdown-menu-light text-small shadow" aria-labelledby="dropdownUser1">
-                              <!-- <li><a class="dropdown-item text-dark" href="#">Settings</a></li>
-                              <li><a class="dropdown-item text-dark" href="#">Profile</a></li> -->
-                              <!-- <li>
-                                  <hr class="dropdown-divider">
-                              </li> -->
                               <li><a class="dropdown-item text-dark" href="logout.php">Sign out</a></li>
                           </ul>
                       </div>
@@ -112,6 +107,8 @@
                                   include_once("course.php");
                                 }else if($_GET["a"] === "course" && $_GET["b"] === "allocation"){
                                     include_once("courseallocation.php");
+                                }else if($_GET["a"] === "session" && $_GET["b"] === "academics"){
+                                  include_once("academics.php");
                                 }else{
                                   include_once("index.php");
                                 }
