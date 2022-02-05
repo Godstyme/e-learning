@@ -34,6 +34,7 @@
                                 }else {
                                   $count = 1;
                                   foreach($fetchResponse as $row){
+                                  $crs = $row['coursetitle'].",".$row['coursecode'].",".$row['unit'];
                             ?>
                             <tbody>
                               <tr>
@@ -42,7 +43,7 @@
                                 <td name="cos[]"><?php echo $row['coursecode']?></td>
                                 <td name="cos[]"><?php echo $row['unit']?></td>
                                 <td>
-                                  <input type="checkbox" name="courses[]" id="checkbox" value="<?php echo $row['coursetitle'],$row['coursecode'],$row['unit']?>">
+                                  <input type="checkbox" name="courses[]" id="checkbox" value="<?php echo $crs ?>">
                                 </td>
                               </tr>
                             </tbody>
@@ -66,15 +67,29 @@
 
 <?php
 if (isset($_POST['btnAdd'])){
-  $checkbox1 = $_POST['courses'];
-    $chk=""; 
-    foreach($checkbox1 as $chk1){  
-      $chk.= $chk1;  
+  $all_courses = $_POST['courses'];
+  $username = $_SESSION['email'];
+
+    $error="These courses could not be registered:\n";
+    $has_error = FALSE;
+
+    foreach($all_courses as $course){
+      $course_info = explode(",",$course);
+      $coursetitle = $course_info[0];
+      $coursecode = $course_info[1];
+      $unit = $course_info[2];
+
+      $insertResponse =  $insertData->registeredcourse($username,$coursetitle,$coursecode,$unit);
+        if (!$insertResponse['status']) {
+            $error .= $coursecode." Error Message: ".$insertResponse['message']."\n";
+            $has_error = TRUE;
+        }
     }
-  $insertResponse =  $insertData->registeredcourse($chk,$chk,$chk,$chk);
-  if ($insertResponse['status']) {
-  echo "<script>alert('Course allocation Successful')</script>";
-  }
+  if ($has_error) {
+    echo "<script>alert('$error')</script>";
+  }else {
+             echo "<div class='text-red'>Course Registration Successful</div>";
+           }
 }
 ?>
 
