@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.center{
+margin: auto;
+width: 100%;
+border: 25px solid blue;
+padding: 10px;
+background-color:#F8F9FA;
+}
+.wrap{
+    background: #fff;
+    border-radius: 4px;
+    font-size: 15px;
+}
+.body{
+    background: #2E4FC3;
+}
+.nav-bg{
+    background: #FFFFFF;
+}
+/*nav-logo*/
+.navLogo{
+    /*padding-top: -100px;*/
+    /*margin-left: 100px;*/
+    width: 160px;
+    max-width: 100%;
+    /*height: -20px;*/
+}
+#navLink{
+    color: black;
+    font-family: monospace;
+    font-size: 1.6em;
+}
+.heroContent{
+    margin-top: 60px;
+}
+#heroImage{
+    width: 500px;
+}
+.heroPara{
+    border: 2px solid #fbd1a2;
+    background: #fbd1a2;
+    color: white;
+    text-align: center;
+    font-size: 1.4em;
+    width: 190px;
+    padding: 5px;
+}
+.heading{
+    width: 290px;
+}
+.headspan{
+    color: blue;
+}
+.para{
+    font-size: 12px;
+    width: 184px;
+}
+.Sign-link{
+padding: 10px 25px 10px 25px ;
+border-style: none;
+background: blue;
+color: white;
+font-size: 1.3em;
+}
+
+
+/*sign-up form css*/
+.signup-image{
+    width: 500px;
+}
+.sign-input{
+border: 2px solid blue;
+outline: none;
+}
+
+
+.submitbtn{
+    padding: 10px 30px;
+    margin-left: 90px;
+    font-size: 1.2em;
+}
+
+/*option.html css*/
+.heading1{
+    margin-top: 3em;
+
+}
+#para{
+    color: black;
+    font-size: 20px;
+    margin-top: 162px;
+}
+
+.btn1{
+    outline-style: none;
+    border: 1px ridge blue;
+    padding: 10px 120px 10px 120px;
+    color: black;
+}
+.btn2{
+    outline-style: none;
+    border: 2px ridge blue;
+    background: blue;
+    padding: 10px 120px 10px 120px;
+    color: white;
+}
+/*LtHtml*/
+.forminput{
+    width: 500px;
+    outline-style: none;
+}
+.form-label{
+margin-top: 1rem;
+}
+.loginbtn{
+    justify-items: center;
+    /*margin-left: 30%;*/
+    padding: 12px 80px 12px 80px;
+    margin-top: 41px;
+    font-size: 20px;
+}
+.loginbtn:hover{
+    background-color: blue;
+}
+.form{
+    margin-left: 30%;
+}
+@media (min-width: 576px) {
+    .h-sm-100 {
+        height: 100%;
+    }
+}
+
+p {
+    margin: 0%
+}
+
+.container {
+    margin: 30px auto;
+    background: white;
+    padding: 20px 15px
+}
+
+label.box {
+    display: flex;
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #ddd
+}
+
+#one:checked~label.first,
+#two:checked~label.second,
+#three:checked~label.third,
+#four:checked~label.forth,
+#five:checked~label.fifth,
+#six:checked~label.sixth,
+#seven:checked~label.seveth,
+#eight:checked~label.eighth {
+    border-color: #8e498e
+}
+
+#one:checked~label.first .circle,
+#two:checked~label.second .circle,
+#three:checked~label.third .circle,
+#four:checked~label.forth .circle,
+#five:checked~label.fifth .circle,
+#six:checked~label.sixth .circle,
+#seven:checked~label.seveth .circle,
+#eight:checked~label.eighth .circle {
+    border: 6px solid #8e498e;
+    background-color: #fff
+}
+
+label.box:hover {
+    background: #d5bbf7
+}
+
+label.box .course {
+    display: flex;
+    align-items: center;
+    width: 100%
+}
+
+label.box .circle {
+    height: 22px;
+    width: 22px;
+    border-radius: 50%;
+    margin-right: 15px;
+    border: 2px solid #ddd;
+    display: inline-block
+}
+
+input[type="radio"] {
+    display: none
+}
+
+.btn.btn-primary {
+    border-radius: 25px;
+    margin-top: 20px
+}
+
+@media(max-width: 450px) {
+    .subject {
+        font-size: 12px
+    }
+}
+
