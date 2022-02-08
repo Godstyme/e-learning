@@ -57,14 +57,19 @@
                             </div>
                           </li>
                           <li>
-                            <a href="res.html" class="nav-link px-sm-0 px-2 text-dark">
+                            <a href="index.php?a=link&b=live" class="nav-link px-sm-0 px-2 text-dark">
                               <i class="fas fa-users-cog"></i><span class="ms-1 d-none d-sm-inline">Post Lecture Links</span>
                             </a>
                           </li>
                           <li>
-                            <a href="#" class="nav-link px-sm-0 px-2 text-dark">
-                              <i class="fas fa-chalkboard-teacher"></i><span class="ms-1 d-none d-sm-inline">Set Quiz</span> 
+                            <a href="" class="px-sm-0 px-2 nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown">
+                              <i class="fas fa-chalkboard-teacher"></i><span class="ms-1 d-none d-sm-inline">Manage Exams</span>
                             </a>
+                            <div class="dropdown-menu">
+                                <a href="index.php?a=quiz&b=cbt" class="dropdown-item text-dark">Create Exams</a>
+                                <a href="index.php?a=setx&b=exam" class="dropdown-item">Set Exam</a>
+                                <a href="index.php?a=setq&b=question" class="dropdown-item">Set Question</a>
+                            </div>
                           </li>
                           <li>
                             <a href="" class="px-sm-0 px-2 nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown">
@@ -72,7 +77,7 @@
                             </a>
                             <div class="dropdown-menu">
                                 <a href="index.php?a=setassign&b=sethome" class="dropdown-item text-dark">Set Assignment</a>
-                                <a href="index.php?a=registered&b=course" class="dropdown-item">Document</a>
+                                <a href="index.php?a=registered&b=course" class="dropdown-item">View Submitted Assignment</a>
                             </div>
                           </li>
                           <li>
@@ -85,7 +90,7 @@
                           <a href="" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
                               <img src="https://github.com/mdo.png" alt="hugenerd" width="28" height="28" class="rounded-circle">
                               <span class="d-none d-sm-inline mx-1">
-                                <?php echo "<div class='text-primary text-center'>". $_SESSION['email']. $_SESSION['id']."</div>";?>
+                                <?php echo "<div class='text-primary text-center'>". $_SESSION['email']."</div>";?>
                               </span>
                           </a>
                           <ul class="dropdown-menu dropdown-menu-light text-small shadow" aria-labelledby="dropdownUser1">
@@ -108,16 +113,20 @@
                             if(isset($_GET['a']) && isset($_GET['b'])){
                                 if($_GET["a"] === "class" && $_GET["b"] === "link"){
                                   include_once("class.php");
-                                }else if($_GET["a"] === "res" && $_GET["b"] === "lecture"){
-                                  include_once("res.php");
+                                }else if($_GET["a"] === "link" && $_GET["b"] === "live"){
+                                  include_once("link.php");
                                 }else if($_GET["a"] === "assignment" && $_GET["b"] === "homework"){
                                   include_once("assignment.php");
-                                }else if($_GET["a"] === "register" && $_GET["b"] === "course"){
-                                  include_once("registercourse.php");
+                                }else if($_GET["a"] === "setx" && $_GET["b"] === "exam"){
+                                  include_once("setexam.php");
                                 }else if($_GET["a"] === "registered" && $_GET["b"] === "course"){
                                     include_once("registered.php");
                                 }else if($_GET["a"] === "setassign" && $_GET["b"] === "sethome"){
                                       include_once("assignment.php");
+                                }else if($_GET["a"] === "quiz" && $_GET["b"] === "cbt"){
+                                  include_once("quiz.php");
+                                }else if($_GET["a"] === "setq" && $_GET["b"] === "question"){
+                                  include_once("setque.php");
                                 }else{
                                   include_once("index.php");
                                 }

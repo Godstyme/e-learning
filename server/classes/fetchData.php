@@ -243,5 +243,94 @@
             }
 
         }
+
+         // display All Lecturer from the database
+         public function displayAllAcademicSession(){
+            $sql = "SELECT * FROM classbatch ORDER BY id";
+            $qry = $this->connection->prepare($sql);
+            $exec = $qry->execute(array());
+
+            if($qry->errorCode() == 0){
+                if ($qry->rowCount() > 0) {
+                    return $qry->fetchAll(PDO::FETCH_ASSOC);    
+                }else{
+                    return 0;
+                } 
+            }else{
+                return array('status'=>0, 'message'=>$qry->errorInfo()); 
+            }
+
+        }
+
+
+        //  display personal register course
+        public function displayPersonalRegisterCos(){
+            $sql = "SELECT * FROM registeredcourse WHERE username = '{$_SESSION['email']}'";
+            $qry = $this->connection->prepare($sql);
+            $exec = $qry->execute(array());
+
+            if($qry->errorCode() == 0){
+                if ($qry->rowCount() > 0) {
+                    return $qry->fetchAll(PDO::FETCH_ASSOC);    
+                }else{
+                    return 0;
+                } 
+            }else{
+                return array('status'=>0, 'message'=>$qry->errorInfo()); 
+            }
+
+        }
+
+        //  display personal personal
+        public function displayStudent(){
+            $sql = "SELECT * FROM student WHERE email = '{$_SESSION['email']}'";
+            $qry = $this->connection->prepare($sql);
+            $exec = $qry->execute(array());
+
+            if($qry->errorCode() == 0){
+                if ($qry->rowCount() > 0) {
+                    return $qry->fetchAll(PDO::FETCH_ASSOC);    
+                }else{
+                    return 0;
+                } 
+            }else{
+                return array('status'=>0, 'message'=>$qry->errorInfo()); 
+            }
+
+        }
+
+        public function displayAddExam(){
+            $sql = "SELECT * FROM quiz WHERE lecturerid = '{$_SESSION['id']}'";
+            $qry = $this->connection->prepare($sql);
+            $exec = $qry->execute(array());
+
+            if($qry->errorCode() == 0){
+                if ($qry->rowCount() > 0) {
+                    return $qry->fetchAll(PDO::FETCH_ASSOC);    
+                }else{
+                    return 0;
+                } 
+            }else{
+                return array('status'=>0, 'message'=>$qry->errorInfo()); 
+            }
+
+        }
+
+        // public function displaySelect($id){
+        //     $sql = "SELECT * FROM quiz WHERE id = '{$_GET['id']}'";
+        //     $qry = $this->connection->prepare($sql);
+        //     $exec = $qry->execute(array(':id'=>$id));
+
+        //     if($qry->errorCode() == 0){
+        //         if ($qry->rowCount() > 0) {
+        //             return $qry->fetchAll(PDO::FETCH_ASSOC);    
+        //         }else{
+        //             return 0;
+        //         } 
+        //     }else{
+        //         return array('status'=>0, 'message'=>$qry->errorInfo()); 
+        //     }
+
+        // }
     }
 ?>

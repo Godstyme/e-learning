@@ -145,5 +145,23 @@ $(document).ready(function($) {
     lecturerLogin('../server/classes/handleRequest.php?_mode=lecturerLogin');
 
     
+    // fetch exam year id
+      $('#examnam').on('change', function() {
+        let val = $(this).val();
+        console.log(val)
+        $.ajax({
+          url: `ajax.php?examname=${val}`,
+          type:'GET',
+          dataType:'json',
+        })
+        .done(function (response) {
+          console.log(response.message)
+        })
+        .fail(function (error) {
+          console.log(error)
+        })
+      })
+
+   
 
 })

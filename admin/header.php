@@ -63,9 +63,13 @@
                             </a>
                           </li>
                           <li>
-                            <a href="index.php?a=course&b=courses" class="nav-link px-sm-0 px-2 text-dark">
+                            <a href="" class="px-sm-0 px-2 nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown">
                               <i class="fas fa-chalkboard-teacher"></i><span class="ms-1 d-none d-sm-inline">Manage Courses</span>
                             </a>
+                            <div class="dropdown-menu">
+                              <a href="index.php?a=course&b=courses" class="dropdown-item">Add Courses</a>
+                              <a href="index.php?a=acamedic&b=session" class="dropdown-item">Assign Course to Session</a>
+                            </div>
                           </li>
                           <li>
                             <a href="index.php?a=session&b=academics" class="nav-link px-sm-0 px-2 text-dark">
@@ -109,6 +113,8 @@
                                     include_once("courseallocation.php");
                                 }else if($_GET["a"] === "session" && $_GET["b"] === "academics"){
                                   include_once("academics.php");
+                                }else if($_GET["a"] === "acamedic" && $_GET["b"] === "session"){
+                                  include_once("assigncos.php");
                                 }else{
                                   include_once("index.php");
                                 }

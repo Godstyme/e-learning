@@ -5,16 +5,30 @@
 		public function updateProfile($id,$faculty,$dept,$phone,$level){
 			$sql = "UPDATE student SET faculty = :faculty, dept = :dept, phone = :phone, level = :level WHERE id = :id";
 
-        $query = $this->connection->prepare($sql);
-         $exec = $query->execute(array(':id' => $id,':faculty'=>$faculty,':dept'=>$dept,':phone'=>$phone,':level'=>$level));
-        
-        if ($query->errorCode() == 0) {
-            return array('status'=>1);
+            $query = $this->connection->prepare($sql);
+            $exec = $query->execute(array(':id' => $id,':faculty'=>$faculty,':dept'=>$dept,':phone'=>$phone,':level'=>$level));
             
-        } else {
-            return array('status'=>0, 'message'=>$query->errorInfo());
+            if ($query->errorCode() == 0) {
+                return array('status'=>1);
+                
+            } else {
+                return array('status'=>0, 'message'=>$query->errorInfo());
+            }
         }
-    }
+
+
+        public function updateExam($id,$coursetitle,$totalque,$markperitque,$markperongque,$examdate){
+			$sql = "UPDATE quiz SET  coursetitle = :coursetitle, totalque=:totalque, markperitque=:markperitque,markperongque=:markperongque,examdate=:examdate WHERE id = :id";
+            $query = $this->connection->prepare($sql);
+            $exec = $query->execute(array(':id' => $id,':coursetitle'=>$coursetitle,':totalque'=>$totalque,':markperitque'=>$markperitque,':markperongque'=>$markperongque,':examdate'=>$examdate));
+            
+            if ($query->errorCode() == 0) {
+                return array('status'=>1);
+                
+            } else {
+                return array('status'=>0, 'message'=>$query->errorInfo());
+            }
+        }
 	}
 	$update = new update;
 ?>

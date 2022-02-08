@@ -89,5 +89,40 @@ class insertData extends DbConnection {
             return array('status'=>0, 'message'=>$query->errorInfo());
         }
     }
+
+    // =====>e 
+    public function assignCosAcademicSession($batchid,$courseid,$semester,$level){
+        $sql = "INSERT INTO coursebatch (batchid,courseid,semester,level) VALUES (:batchid,:courseid,:semester,:level)";
+        $query = $this->connection->prepare($sql);
+        $exec = $query->execute(array(':batchid'=>$batchid,':courseid'=>$courseid,':semester'=>$semester,':level'=>$level ));
+        if ($query->errorCode()==0) {
+            return array('status'=>1);
+        }else{
+            return array('status'=>0, 'message'=>$query->errorInfo());
+        }
+    }
+
+    // =====>e 
+    public function setExam($lecturerid,$examname,$batchid,$examduration,$datecreated,$examstatus){
+        $sql = "INSERT INTO quiz (lecturerid,examname,batchid,examduration,datecreated,examstatus) VALUES (:lecturerid,:examname,:batchid,:examduration,:datecreated,:examstatus)";
+        $query = $this->connection->prepare($sql);
+        $exec = $query->execute(array(':lecturerid'=>$lecturerid,':examname'=>$examname,':batchid'=>$batchid, ':examduration'=>$examduration,':datecreated'=>$datecreated,':examstatus'=>$examstatus));
+        if ($query->errorCode()==0) {
+            return array('status'=>1);
+        }else{
+            return array('status'=>0, 'message'=>$query->errorInfo());
+        }
+    }
+
+    public function setSchedule($lecturerid,$examname,$coursetitle,$batchid,$examduration,$datecreated,$examstatus){
+        $sql = "INSERT INTO quiz (lecturerid,examname, coursetitle,batchid,examduration,datecreated,examstatus) VALUES (:lecturerid,:examname, :coursetitle,:batchid,:examduration,:datecreated,:examstatus)";
+        $query = $this->connection->prepare($sql);
+        $exec = $query->execute(array(':coursetitle'=>$coursetitle,':lecturerid'=>$lecturerid,':examname'=>$examname,':batchid'=>$batchid, ':examduration'=>$examduration,':datecreated'=>$datecreated,':examstatus'=>$examstatus));
+        if ($query->errorCode()==0) {
+            return array('status'=>1);
+        }else{
+            return array('status'=>0, 'message'=>$query->errorInfo());
+        }
+    }
 }
 ?>

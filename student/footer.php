@@ -1,4 +1,4 @@
-                <footer class="row bg-light py-2 mt-auto">
+                <footer class="row bg-light py-2 mt-auto px-5">
                   Copyright &copy; <?php echo date('Y'); ?> Ebonyi State University, Abakaliki. All rights
                   reserved. And Developed By <?php echo FULL_NAME ?></a> Design by <?php echo DEVELOPERNAME ?>
                 </footer>

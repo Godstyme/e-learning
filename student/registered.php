@@ -11,12 +11,23 @@ require_once '../server/classes/fetchData.php';
                   <div class="card-body">
                   </div>
                   <div style="overflow-x:scroll;">
+                    <?php
+                      $fetchData = new fetchData;
+                      $fetchResponse = $fetchData->displayStudent();
+                      // var_dump($fetchResponse);
+                      if(is_array($fetchResponse)){
+                        if(isset($fetchResponse['status'])){
+                            '<div class="alert alert-danger">'.print_r($fetchResponse['message']).'</div>';
+                        }else {
+                          $count = 1;
+                          foreach($fetchResponse as $row){
+                    ?>
                     <h3 class="px-2">Student's Personal Details</h3>
                       <table class="table table-hover">
                           <thead>
                               <tr>
                                 <th scope="col">Full Name</th>
-                                <td scope="col">Godstime</td>
+                                <td scope="col"><?php echo $row['name']?></td>
                               </tr>
                           </thead>
                           <tbody>
@@ -30,6 +41,7 @@ require_once '../server/classes/fetchData.php';
                             </tr>
                           </tbody>		        
                       </table>
+                      <?php } }}?>
                   </div>
               </div>
           </div>
@@ -49,8 +61,10 @@ require_once '../server/classes/fetchData.php';
                               </tr>
                           </thead>
                           <?php
+                            $email = $_SESSION['email'];
                             $fetchData = new fetchData;
-                            $fetchResponse = $fetchData->displayAllCourses();
+                            $fetchResponse = $fetchData->displayPersonalRegisterCos($email);
+                            // var_dump($fetchResponse);
                             if(is_array($fetchResponse)){
                               if(isset($fetchResponse['status'])){
                                   '<div class="alert alert-danger">'.print_r($fetchResponse['message']).'</div>';
@@ -62,8 +76,8 @@ require_once '../server/classes/fetchData.php';
                           <tbody>
                             <tr>
                               <th scope="row"><?php echo $count; ?></th>
-                              <td><?php echo $row['coursetitle']?></td>
-                              <td><?php echo $row['coursecode']?></td>
+                              <td><?php echo $row['coursetitle'];?></td>
+                              <td><?php echo $row['coursecode'];?></td>
                               <td><?php echo $row['unit']?></td>
                             </tr>
                           </tbody>
