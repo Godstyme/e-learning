@@ -124,5 +124,16 @@ class insertData extends DbConnection {
             return array('status'=>0, 'message'=>$query->errorInfo());
         }
     }
+
+    public function assignment($lecturerid,$coursetitle,$assignment,$date){
+        $sql = "INSERT INTO assignment (lecturerid,assignment, coursetitle,date) VALUES (:lecturerid,:assignment, :coursetitle,:date)";
+        $query = $this->connection->prepare($sql);
+        $exec = $query->execute(array(':coursetitle'=>$coursetitle,':lecturerid'=>$lecturerid,':assignment'=>$assignment,':date'=>$date));
+        if ($query->errorCode()==0) {
+            return array('status'=>1);
+        }else{
+            return array('status'=>0, 'message'=>$query->errorInfo());
+        }
+    }
 }
 ?>

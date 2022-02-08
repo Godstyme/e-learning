@@ -98,12 +98,12 @@ $fetchData = new fetchData;
                               <th scope="col">S/N</th>
                               <th scope="col">Course Name</th>
                               <th scope="col">Exam Date</th>
-                              <th scope="col">Day</th>
+                              <!-- <th scope="col">Day</th> -->
                               <th scope="col">Exam Duraton</th>
                               <th scope="col">Total Questions</th>
                               <th scope="col">Correct Answer Marks</th>
                               <th scope="col">Wrong Answer Marks</th>
-                              <th scope="col">Status</th>
+                              <!-- <th scope="col">Status</th> -->
                               <th scope="col">Action</th>
                             </tr>
                         </thead>
@@ -123,12 +123,12 @@ $fetchData = new fetchData;
                             <th scope="row"><?php echo $count; ?></th>                              
                             <th><?php echo $row['examname'] ?></th>
                             <td><?php echo $row['batchid']?></td>
-                            <td><?php echo $row['examduration'].' Minutes'?></td>
+                            <!-- <td><?php echo $row['examduration'].' Minutes'?></td> -->
                             <td><?php echo $row['examduration'].' Minutes'?></td>
                             <td><?php echo $row['datecreated']?></td>
                             <td><?php echo $row['batchid']?></td>
                             <td><?php echo $row['batchid']?></td>
-                            <td><a href="" class="btn btn-danger ti-trash" style="color:#F4F4F4"><?php echo $row['examstatus']?></a></td>
+                            <!-- <td><a href="" class="btn btn-danger ti-trash" style="color:#F4F4F4"><?php echo $row['examstatus']?></a></td> -->
                             <td><a href="" class="btn btn-danger ti-trash" style="color:#F2F2F2">Edit</a></td>
                           </tr>
                         </tbody>

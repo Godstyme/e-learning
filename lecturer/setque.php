@@ -77,10 +77,10 @@ $fetchData = new fetchData;
                 <div class="form-group">
                   <label class="form-label">Select Answer</label>
                   <select name="duration" class="form-control form-control-line" required>
-                      <option value="10">10 Minutes</option>
-                      <option value="20">20 Minutes</option>
-                      <option value="30">30 Minutes</option>
-                      <option value="40">40 Minutes</option>
+                      <option value="1">Option 1</option>
+                      <option value="2">Option 2</option>
+                      <option value="3">Option 3</option>
+                      <option value="4">Option 4</option>
                   </select>
                 </div>
 
@@ -112,8 +112,8 @@ $fetchData = new fetchData;
                           </thead>
                           <tbody>
                             <tr>
-                              <th scope="row"></th>                              
-                              <th></th>
+                              <th scope="row">1</th>                              
+                              <th>Winter</th>
                               <td>Database Management</td>
                               <td>What is database</td>
                               <td>Fasting</td>
