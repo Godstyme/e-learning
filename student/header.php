@@ -111,7 +111,7 @@
                                 }else if($_GET["a"] === "profile" && $_GET["b"] === "student"){
                                   include_once("profile.php");
                                 } else if($_GET["a"] === "quiz" && $_GET["b"] === "exam"){
-                                  include_once("quiz.php");
+                                  include_once("cbt.php");
                                 } else{
                                   include_once("index.php");
                                 }

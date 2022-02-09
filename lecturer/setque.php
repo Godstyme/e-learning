@@ -60,19 +60,19 @@ $fetchData = new fetchData;
                 </div>
                 <div class="form-group">
                   <label for="exampleInputName" class="form-label">Option One:</label>
-                  <input type="text" class="form-control" name="fullname" id="exampleInputNam" aria-describedby="nameHelp"  required>
+                  <input type="text" class="form-control" name="1" id="exampleInputNam" aria-describedby="nameHelp"  required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputName" class="form-label">Option Two:</label>
-                  <input type="text" class="form-control" name="fullname" id="exampleInputNam" aria-describedby="nameHelp"  required>
+                  <input type="text" class="form-control" name="2" id="exampleInputNam" aria-describedby="nameHelp"  required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputName" class="form-label">Option Three:</label>
-                  <input type="text" class="form-control" name="fullname" id="exampleInputNam" aria-describedby="nameHelp"  required>
+                  <input type="text" class="form-control" name="3" id="exampleInputNam" aria-describedby="nameHelp"  required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputName" class="form-label">Option Four:</label>
-                  <input type="text" class="form-control" name="fullname" id="exampleInputNam" aria-describedby="nameHelp"  required>
+                  <input type="text" class="form-control" name="4" id="exampleInputNam" aria-describedby="nameHelp"  required>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Select Answer</label>
