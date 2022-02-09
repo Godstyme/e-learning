@@ -56,27 +56,27 @@ $fetchData = new fetchData;
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName" class="form-label">Question:</label>
-                    <input type="text" class="form-control" name="fullname" id="exampleInputNam" aria-describedby="nameHelp"  required>
+                    <input type="text" class="form-control" name="question" id="exampleInputNam" aria-describedby="nameHelp"  required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputName" class="form-label">Option One:</label>
-                  <input type="text" class="form-control" name="1" id="exampleInputNam" aria-describedby="nameHelp"  required>
+                  <input type="text" class="form-control" name="option1" id="exampleInNam" aria-describedby="nameHelp"  required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputName" class="form-label">Option Two:</label>
-                  <input type="text" class="form-control" name="2" id="exampleInputNam" aria-describedby="nameHelp"  required>
+                  <input type="text" class="form-control" name="option2" id="exmpleInputNam" aria-describedby="nameHelp"  required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputName" class="form-label">Option Three:</label>
-                  <input type="text" class="form-control" name="3" id="exampleInputNam" aria-describedby="nameHelp"  required>
+                  <input type="text" class="form-control" name="option3" id="exampeInputNam" aria-describedby="nameHelp"  required>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputName" class="form-label">Option Four:</label>
-                  <input type="text" class="form-control" name="4" id="exampleInputNam" aria-describedby="nameHelp"  required>
+                  <input type="text" class="form-control" name="option4" id="exampleInptNam" aria-describedby="nameHelp"  required>
                 </div>
                 <div class="form-group">
                   <label class="form-label">Select Answer</label>
-                  <select name="duration" class="form-control form-control-line" required>
+                  <select name="answer" class="form-control form-control-line" required>
                       <option value="1">Option 1</option>
                       <option value="2">Option 2</option>
                       <option value="3">Option 3</option>
@@ -135,16 +135,17 @@ $fetchData = new fetchData;
 <?php
   require_once '../server/classes/insertData.php';
   if (isset($_POST['btnAdd'])){
-    $username = $_SESSION['id'];
-    $fullname = $_POST['fullname'];
-    $batch = $_POST['batch'];
-    $duration = $_POST['duration'];
-    $date = date('d-m-Y');
-    $status = "pending";
+    // $username = $_SESSION['id'];
+    $questiontitle = $_POST['question'];
+    $option1 = $_POST['option1'];
+    $option2 = $_POST['option2'];
+    $option3 = $_POST['option3'];
+    $option4 = $_POST['option4'];
+    $answer = $_POST['answer'];
     
 
     $insertData = new insertData;
-    $insertResponse =  $insertData->setExam($username,$fullname,$batch,$duration,$date,$status);
+    $insertResponse =  $insertData->insertQuestion($examid,$questiontitle,$option1,$option2,$option3,$option4,$answer);
     echo "<script>alert('Successful')</script>";
   }
 ?>

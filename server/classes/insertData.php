@@ -135,5 +135,16 @@ class insertData extends DbConnection {
             return array('status'=>0, 'message'=>$query->errorInfo());
         }
     }
+
+    public function insertQuestion($examid,$questiontitle,$option1,$option2,$option3,$option4,$answer){
+        $sql = "INSERT INTO assignment (examid,option1, questiontitle,option2,option3,option4,answer) VALUES (:examid,:option1,:questiontitle,:option2,:option3,:option4,:answer)";
+        $query = $this->connection->prepare($sql);
+        $exec = $query->execute(array(':questiontitle'=>$questiontitle,':examid'=>$examid,':option1'=>$option1,':option2'=>$option2,':option3'=>$option3,':option4'=>$option4,':answer'=>$answer));
+        if ($query->errorCode()==0) {
+            return array('status'=>1);
+        }else{
+            return array('status'=>0, 'message'=>$query->errorInfo());
+        }
+    }
 }
 ?>

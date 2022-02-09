@@ -18,13 +18,7 @@ require_once '../server/classes/fetchData.php';
       display: block;
       padding: 0px 1em 0px 8px;
     }
-    
-    input[type=radio],
-    input.radio {
-      /* float: left;
-      clear: none;
-      margin: 2px 0 0 2px; */
-    }
+  
 </style>
 <div class="mt-4 pb-3">
     <div class="container wrap pb-3 text-dark">

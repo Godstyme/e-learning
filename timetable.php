@@ -7,7 +7,7 @@ require_once 'includes/heada.php';
     <h3>Department of Computer Science</h3>
     <h4>Second Smester Lecture Timetable</h4>
   </div>
-  <div class="px-5 py-5 border mt-3">
+  <div class="px-5 py-5 border mt-3 mb-5">
     <table class="table">
       <thead>
         <tr>
