@@ -10,11 +10,11 @@ require_once '../server/classes/fetchData.php';
             <div class="card card-body">
                 <p class="card-title text-center">Add Admin</p>
                 <form method="post" class="form-horizontal m-t-30" id="addAdmin">
-                  <div class="mb-3">
+                  <div class="form-group mb-3">
                     <label for="exampleInputName" class="form-label">Full Name:</label>
                     <input type="text" class="form-control" name="fullname" id="exampleInputNam" aria-describedby="nameHelp"  required>
                   </div>
-                  <div class="mb-3">
+                  <div class="form-group mb-3">
                     <label for="exampleInputName" class="form-label">Email:</label>
                     <input type="email" class="form-control" name="email" id="exampleInputame" aria-describedby="nameHelp" required>
                   </div>
@@ -59,7 +59,7 @@ require_once '../server/classes/fetchData.php';
                               <th scope="row"><?php echo $count; ?></th>
                               <td><?php echo $row['name']?></td>
                               <td><?php echo $row['username']?></td>
-                              <td><a href="" class="btn btn-danger ti-trash" style="color:#F2F2F2">Remove</a></td>
+                              <td><a href="index.php?a=admin&b=add&id=<?php echo $row['id']?>" class="btn btn-danger ti-trash" style="color:#F2F2F2">Remove</a></td>
                             </tr>
                           </tbody>
                           <?php 
@@ -74,3 +74,12 @@ require_once '../server/classes/fetchData.php';
       </div>
     </div>
   </div>
+
+  <?php
+    require_once '../server/classes/deleteData.php';
+
+    $id = $_GET['id'];
+    $delete= new delete;
+    $deleteResponse = $delete->deleteAdmin($id);
+    echo "<script>console.log('The Record Was Deleted Successful')</script>";
+?>

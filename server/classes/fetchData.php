@@ -112,11 +112,11 @@
 
 
         // to check wether a user exist in the database
-        public function adminEmailCheck($email){
+        public function adminEmailCheck($username){
 
-            $sql = "SELECT  password FROM admin WHERE email = :email ";
+            $sql = "SELECT  password FROM admin WHERE username = :username ";
             $query = $this->connection->prepare($sql);
-            $exec = $query->execute(array(':email'=>$email));
+            $exec = $query->execute(array(':username'=>$username));
             
             if($query->errorCode() == 0){
                 if ($query->rowCount() > 0) {
@@ -316,21 +316,21 @@
 
         }
 
-        // public function displaySelect($id){
-        //     $sql = "SELECT * FROM quiz WHERE id = '{$_GET['id']}'";
-        //     $qry = $this->connection->prepare($sql);
-        //     $exec = $qry->execute(array(':id'=>$id));
-
-        //     if($qry->errorCode() == 0){
-        //         if ($qry->rowCount() > 0) {
-        //             return $qry->fetchAll(PDO::FETCH_ASSOC);    
-        //         }else{
-        //             return 0;
-        //         } 
-        //     }else{
-        //         return array('status'=>0, 'message'=>$qry->errorInfo()); 
-        //     }
-
-        // }
+       // verify courses before registration by students
+        public function displayRegisteredCourse($coursetitle){
+            $sql = "SELECT * registeredcourse  WHERE coursetitle = :coursetitle";
+            $query = $this->connection->prepare($sql);
+            $exec = $query->execute(array(':coursetitle'=>$coursetitle));
+            if ($query->errorCode() == 0) {
+                if ($query->rowCount() > 0) {
+                    $data = $query->fetchAll(PDO::FETCH_ASSOC);
+                    return array('status'=>1,'data'=>$data);
+                }else{
+                    return  array('status' => 0);
+                }
+            }else{
+                return array('status'=>0, 'message'=>$query->errorInfo()); 
+            }
+        }
     }
 ?>

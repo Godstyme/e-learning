@@ -45,10 +45,11 @@ $student = $_SESSION['email'];
           <div class="form-group mb-3">            
             <label>Select Level</label>
             <select name="level" class="form-control form-control-line" required>
-              <option value="<?php echo $level; ?>">Year One</option>
-              <option value="<?php echo $level; ?>">Year Two</option>
-              <option value="<?php echo $level; ?>">Year Three</option>
-              <option value="<?php echo $level; ?>">Year Four</option>
+              <option value="">Select your level</option>
+              <option value="100">Year One</option>
+              <option value="200">Year Two</option>
+              <option value="300">Year Three</option>
+              <option value="400">Year Four</option>
             </select>
           </div>
           <div class="form-group mt-3">

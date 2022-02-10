@@ -129,7 +129,7 @@
 
 				if ($password = password_hash($password, PASSWORD_DEFAULT)) {
 					// check and validate  a user existence in table
-					$fetchResponse1 = $fetchData1->lecturerEmailCheck($username);
+					$fetchResponse1 = $fetchData1->adminEmailCheck($username);
 					if (is_array($fetchResponse1)) {
 						if(isset($fetchResponse1['status']) && $fetchResponse1['status'] === 1){
 							$response = array('status'=>0,'input'=>"name",'message'=>"A User already exist with this email. ");

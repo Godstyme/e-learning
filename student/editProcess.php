@@ -1,6 +1,6 @@
 <?php
 // require_once 'header.php';
-require_once '../server/classes/updateData.php';
+// require_once '../server/classes/updateData.php';
 // $student = $_SESSION['email'];
 ?>
 <div class="content-wrapper">
@@ -21,9 +21,7 @@ require_once '../server/classes/updateData.php';
           $phone = $_POST['phone'];
           $level = $_POST['level'];
           $updateResponse = $update->updateProfile($id,$faculty,$dept,$phone,$level);
-          // echo $id.$email.$faculty.$dept.$jambid.$phone.$level;
-          echo '<h1 style="color:green;margin-top:150px;margin-bottom:150px;text-align:center"> Update Successfull <br> Thank You !!.</h1>';
-      } else {
-          echo '<h1 style="color:red;margin-top:150px;margin-bottom:150px;text-align:center">  There was an error Updating the Transaction Data  <br> Please go back and try again.</h1>';;
-      }
+          echo "<script > alert('Update Successfull, Thank You !!.')</script>";
+          // echo "<script>alert('Successful')</script>";
+      } 
   ?>

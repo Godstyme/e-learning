@@ -1,5 +1,6 @@
 <?php 
 require_once '../server/classes/fetchData.php';
+$fetchData = new fetchData;
 ?>
 <div class="mt-4 pb-3">
     <div class="container wrap pb-3 text-dark">
@@ -12,7 +13,6 @@ require_once '../server/classes/fetchData.php';
                   </div>
                   <div style="overflow-x:scroll;">
                     <?php
-                      $fetchData = new fetchData;
                       $fetchResponse = $fetchData->displayStudent();
                       // var_dump($fetchResponse);
                       if(is_array($fetchResponse)){
@@ -62,14 +62,13 @@ require_once '../server/classes/fetchData.php';
                           </thead>
                           <?php
                             $email = $_SESSION['email'];
-                            $fetchData = new fetchData;
                             $fetchResponse = $fetchData->displayPersonalRegisterCos($email);
-                            // var_dump($fetchResponse);
                             if(is_array($fetchResponse)){
                               if(isset($fetchResponse['status'])){
                                   '<div class="alert alert-danger">'.print_r($fetchResponse['message']).'</div>';
                               }else {
                                 $count = 1;
+                                $totalCos = 0;
                                 foreach($fetchResponse as $row){
 
                           ?>
@@ -82,12 +81,15 @@ require_once '../server/classes/fetchData.php';
                             </tr>
                           </tbody>
                           <?php 
+                            $totalCos += $row['unit'];
                             $count+=1;
                             }}}
                           ?>
                           <tr>
-                            <td scope="col">Total Courses</td>
-                            <td>Total Units</td>
+                            <!-- <td scope="col">Total Courses</td> -->
+                            <td><strong>Total Units: </strong> &nbsp;<label for=""><?php 
+                             echo $totalCos;
+                            ?></label></td>
                           </tr>
                       </table>
                   </div>
