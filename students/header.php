@@ -100,12 +100,12 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
           <i class="fas fa-fw fa-users"></i>
-          <span>Manage Admins</span>
+          <span>Quiz</span>
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Admins:</h6>
-            <a class="collapse-item" href="admin.php">Add Admins</a>
+            <h6 class="collapse-header">Quiz:</h6>
+            <a class="collapse-item" href="quiz.php">Take Quiz</a>
             <a class="collapse-item" href="viewadmins.php">View Admin</a>
           </div>
         </div>

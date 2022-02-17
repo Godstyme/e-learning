@@ -20,7 +20,7 @@
                 </div>
                 <div class="form-group">
                     <label>Assignment</label>
-                    <input type="image" name="password" class="form-control">
+                    <input type="file" name="img" class="form-control">
                 </div>
 
                   <div class="form-group mt-3">
