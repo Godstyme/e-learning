@@ -34,7 +34,7 @@
                       }else {
                         $count = 1;
                         foreach($fetchResponse as $row){
-                        $crs = $row['coursetitle'].",".$row['coursecode'].",".$row['unit'];
+                        $crs = $row['id'].",".$row['coursetitle'].",".$row['coursecode'].",".$row['unit'];
                   ?>
                     <tr>
                       <th scope="row"><?php echo $count; ?></th>
@@ -64,36 +64,41 @@
                         
         </div>
       </div>
+
+      <div>
+        <?php
+            if (isset($_POST['btnAdd'])){
+              $all_courses = $_POST['courses'];
+              $username = $_SESSION['email'];
+
+                $error="These courses could not be registered:\n";
+                // $msg = "Course Registration Successful";
+                $has_error = FALSE;
+
+                foreach($all_courses as $course){
+                  $course_info = explode(",",$course);
+                  $courseid = $course_info[0];
+                  $coursetitle = $course_info[1];
+                  $coursecode = $course_info[2];
+                  $unit = $course_info[3];
+
+                  $insertResponse =  $insertData->registeredcourse($username,$courseid,$coursetitle,$coursecode,$unit);
+                  // var_dump($insertResponse);
+                    if (!$insertResponse['status']) {
+                        $error .= $coursecode." Error Message: ".$insertResponse['message']."\n";
+                        $has_error = TRUE;
+                    }
+                }
+              if ($has_error) {
+                echo "<script>alert('$error')</script>";
+              }else {
+                  echo "<h2 class='text-success text-center'>Course Registration Successful</h2>";
+                }
+            }
+        ?>
+      </div>
   </div>
 </div>
 <?php
 	require_once 'footer.php';
-?>
-<?php
-  if (isset($_POST['btnAdd'])){
-    $all_courses = $_POST['courses'];
-    $username = $_SESSION['email'];
-
-      $error="These courses could not be registered:\n";
-      // $msg = "Course Registration Successful";
-      $has_error = FALSE;
-
-      foreach($all_courses as $course){
-        $course_info = explode(",",$course);
-        $coursetitle = $course_info[0];
-        $coursecode = $course_info[1];
-        $unit = $course_info[2];
-
-        $insertResponse =  $insertData->registeredcourse($username,$coursetitle,$coursecode,$unit);
-          if (!$insertResponse['status']) {
-              $error .= $coursecode." Error Message: ".$insertResponse['message']."\n";
-              $has_error = TRUE;
-          }
-      }
-    if ($has_error) {
-      echo "<script>alert('$error')</script>";
-    }else {
-              echo "<div class='text-success'>Course Registration Successful</div>";
-            }
-  }
 ?>

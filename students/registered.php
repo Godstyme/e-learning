@@ -23,13 +23,13 @@
                 ?>
                 <h3 class="px-2">Student's Personal Details</h3>
                 <table class="table table-hover">
-                    <thead>
+                    <!-- <thead> -->
                         <tr>
                           <th scope="col">Full Name</th>
                           <td scope="col"><?php echo $row['name']?></td>
                         </tr>
-                    </thead>
-                    <tbody>
+                    <!-- </thead> -->
+                    <!-- <tbody> -->
                       <tr>
                         <th scope="col">Level</th>
                         <td scope="col"><?php echo $row['level']?></td>
@@ -38,7 +38,7 @@
                         <th scope="col">Semester</th>
                         <td scope="col">Second Semester</td>
                       </tr>
-                    </tbody>		        
+                    <!-- </tbody>		         -->
                 </table>
                 <?php } }}?>
                 <div class="text-center py-3">Here is the break down of all courses you registered for 100 Level First Semester.</div>
@@ -64,14 +64,14 @@
                             foreach($fetchResponse as $row){
 
                       ?>
-                      <tbody>
+                      <!-- <tbody> -->
                         <tr>
                           <th scope="row"><?php echo $count; ?></th>
                           <td><?php echo $row['coursetitle'];?></td>
                           <td><?php echo $row['coursecode'];?></td>
                           <td><?php echo $row['unit']?></td>
                         </tr>
-                      </tbody>
+                      <!-- </tbody> -->
                       <?php 
                         $totalCos += $row['unit'];
                         $count+=1;
@@ -79,7 +79,7 @@
                       ?>
                       <tr>
                         <!-- <td scope="col">Total Courses</td> -->
-                        <td><strong>Total Units: </strong> &nbsp;<label for=""><?php 
+                        <td colspan="4" class="text-center"><strong>Total Units: </strong> &nbsp;<label for=""><?php 
                         echo $totalCos;
                         ?></label></td>
                       </tr>

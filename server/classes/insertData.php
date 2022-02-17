@@ -68,10 +68,10 @@ class insertData extends DbConnection {
 
 
     // student course registration table 
-    public function registeredcourse($username,$coursetitle,$coursecode,$unit){
-        $sql = "INSERT INTO registeredcourse (username,coursetitle,coursecode,unit) VALUES (:username,:coursetitle,:coursecode,:unit)";
+    public function registeredcourse($username,$courseid,$coursetitle,$coursecode,$unit){
+        $sql = "INSERT INTO registeredcourse (username,courseid,coursetitle,coursecode,unit) VALUES (:username,:courseid,:coursetitle,:coursecode,:unit)";
         $query = $this->connection->prepare($sql);
-        $exec = $query->execute(array(':username'=>$username,':coursetitle'=>$coursetitle,':coursecode'=>$coursecode,':unit'=>$unit ));
+        $exec = $query->execute(array(':username'=>$username,':courseid'=>$courseid,':coursetitle'=>$coursetitle,':coursecode'=>$coursecode,':unit'=>$unit ));
         if ($query->errorCode()==0) {
             return array('status'=>1);
         }else{
