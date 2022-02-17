@@ -11,10 +11,10 @@
             <h4>Answer Correctly the Questions</h4>
             <p>Please ensure you choose your answers correctly as any wrong choice can not be reversed after Submission.</p>
           </div>
-          <div class="col-lg-6 offset-lg-3 mt-4">
+          <div class="col-lg-8 offset-lg-2 mt-4">
             <form action="" method="post">
               <div class="mb-3 px-3 py-2 Regular shadow rounded border border-dark" style="background: #fff;">
-                <p style="font-weight: bolder;">
+                <p style="font-weight: bolder;font-size:larger;">
                   1.&nbsp;&nbsp;What is Computer?
                 </p>
                 <div class="form-check">
