@@ -63,9 +63,9 @@
                   <td>Level</td>
                   <td><?php echo $level; ?></td>
                 </tr>
-                <tr class="text-center">
-                  <td>
-                    <a  href="updatebio.php?id=<?php echo $id?>" class="btn btn-outline-primary">EDIT</a>
+                <tr>
+                  <td colspan="2" class="text-center pt-4">
+                    <a  href="updatebio.php?id=<?php echo $id?>" class="btn btn-outline-primary w-25">EDIT</a>
                   </td>
                 </tr>
               </tbody>
