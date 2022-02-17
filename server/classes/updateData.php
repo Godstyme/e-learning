@@ -2,7 +2,7 @@
 	require_once('dbconnection.php');
 
     class update extends DbConnection{
-		public function updateProfile($id,$faculty,$dept,$jambid,$phone,$level){
+		public function updateProfile($id,$faculty,$jambid,$dept,$phone,$level){
 			$sql = "UPDATE student SET faculty = :faculty, jambid = :jambid, dept = :dept,phone = :phone, level = :level WHERE id = :id";
 
             $query = $this->connection->prepare($sql);

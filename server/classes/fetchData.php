@@ -156,23 +156,19 @@
         }
         // student login validation
         public function studentLgoin($email){
-            $sql = "SELECT  password FROM student WHERE email = :username ";
+            $sql = "SELECT  * FROM student WHERE  email = ?";
             $query = $this->connection->prepare($sql);
-            $exec = $query->execute(array(':username'=>$email));
-            
-            if($query->errorCode() == 0){
-                if ($query->rowCount() > 0) {
-                    $data = $query->fetchAll(PDO::FETCH_ASSOC);
-                    foreach ($data as $row) {
-                        $pass = $row['password'];
-                        return array('status'=>1, 'password'=>$pass);
-                    } 
-                }else{
-                    return array('status'=>0, 'message'=>'User Does not exist');
+            $exec = $query->execute(array($email));
+            if ($query->rowCount() >= 1) {
+                $data = $query->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($data as $row) {
+                    $name = $row['name'];
+                    $pass = $row['password'];
+                    return array('status'=>1,'password'=>$pass, 'name'=>$name);
                 } 
             }else{
-                return array('status'=>0, 'message'=>$query->errorInfo()); 
-            }
+                return array('status'=>0, 'message'=>'User Does not exist');
+            } 
         }
         // lecturer login validation
         public function lecturerLogin($email){

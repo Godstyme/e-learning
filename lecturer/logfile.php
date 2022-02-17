@@ -12,7 +12,8 @@ $qry = $pdo ->prepare($sql);
   ,':totalque'=>$totalque,':markperitque'=>$markperitque,':markperongque'=>$markperongque,':examdate'=>$examdate
 
 
-
+<!-- https://www.doabledanny.com/Deploy-PHP-And-MySQL-to-Heroku -->
+<!-- mobile-phone-repair-consultant.epizy.com -->z1ARAb177YS5VLd   epiz_31060842
 
   <?php
 // $db = require_once '../server/classes/dbconnection.php';

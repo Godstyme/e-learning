@@ -93,7 +93,7 @@ $(document).ready(function($) {
         })
         .done(function (response) {
           alert(response.message)
-          window.location = "student/index.php";
+          window.location = "students/index.php";
         })
         .fail(function (error) {
           console.log(error)

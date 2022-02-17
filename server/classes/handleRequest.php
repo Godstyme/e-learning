@@ -230,8 +230,10 @@
 							}
 							else if($fetchResponse['status']===1){
 								$checkPass = $fetchResponse['password'];
+								$name = $fetchResponse['name'];
 								if (password_verify($password, $checkPass)) {
 									$_SESSION['email'] = $email;
+									$_SESSION['name'] = $name;
 									// $_SESSION['status']=true;
 									$response =array('status'=>1, 'input'=>"details",'message'=>" Login Successful :: Details Valid");
 								}
