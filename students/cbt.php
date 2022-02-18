@@ -17,23 +17,23 @@
                 <p style="font-weight: bolder;font-size:larger;">
                   1.&nbsp;&nbsp;What is Computer?
                 </p>
-                <div class="form-check">
-                    <div class="pt-4">
+                <div class="form-check px-1">
+                    <div class="bg-light rounded py-2 my-2 pl-2">
                       <label class="form-check-label normal-label">
                         <input type="radio" class="mr-3" id="id_form-0-user_answer input" value="2" name="radAnswer">An eatery
                       </label>
                     </div>
-                    <div class="pt-2">
+                    <div class="bg-light rounded py-2 my-2 pl-2">
                       <label class="form-check-label normal-label">
                         <input type="radio" class="mr-3" id="id_form-0-user_answer input" value="2" name="radAnswer">An eatery
                       </label>
                     </div>
-                    <div class="pt-2">
+                    <div class="bg-light rounded py-2 my-2 pl-2">
                       <label class="form-check-label normal-label">
                         <input type="radio" class="mr-3" id="id_form-0-user_answer input" value="2" name="radAnswer">An eatery
                       </label>
                     </div>
-                    <div class="pt-2">
+                    <div class="bg-light rounded py-2 my-2 pl-2">
                       <label class="form-check-label normal-label">
                         <input type="radio" class="mr-3" id="id_form-0-user_answer input" value="2" name="radAnswer">An eatery
                       </label>
