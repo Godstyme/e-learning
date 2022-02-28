@@ -4,6 +4,7 @@
   $id = $_GET['id'];
   $fetchData = new fetchData;
   $fetchResponse = $fetchData->displayQuestion($id);
+  
 ?>
 
         <!-- Begin Page Content -->
@@ -22,32 +23,32 @@
                     '<div class="alert alert-danger">'.print_r($fetchResponse['message']).'</div>';
                 }else {
                     foreach($fetchResponse as $row){
-
+                      // var_dump($fetchResponse);
             ?>
             <form action="" method="post">
               <div class="mb-3 px-3 py-2 Regular shadow rounded border border-dark" style="background: #fff;">
                 <p style="font-weight: bolder;font-size:larger;">
-                  1.&nbsp;&nbsp;What is Computer?
+                  1.&nbsp;&nbsp;<?php echo $row['questiontitle'];?>
                 </p>
                 <div class="form-check px-1">
                     <div class="bg-light rounded py-2 my-2 pl-2">
                       <label class="form-check-label normal-label">
-                        <input type="radio" class="mr-3" id="id_form-0-user_answer input" value="2" name="radAnswer">An eatery
+                        <input type="radio" class="mr-3" id="id_form-0-user_answer input" value="2" name="radAnswer"><?php echo $row['option1'];?>
                       </label>
                     </div>
                     <div class="bg-light rounded py-2 my-2 pl-2">
                       <label class="form-check-label normal-label">
-                        <input type="radio" class="mr-3" id="id_form-0-user_answer input" value="2" name="radAnswer">An eatery
+                        <input type="radio" class="mr-3" id="id_form-0-user_answer input" value="2" name="radAnswer"><?php echo $row['option2'];?>
                       </label>
                     </div>
                     <div class="bg-light rounded py-2 my-2 pl-2">
                       <label class="form-check-label normal-label">
-                        <input type="radio" class="mr-3" id="id_form-0-user_answer input" value="2" name="radAnswer">An eatery
+                        <input type="radio" class="mr-3" id="id_form-0-user_answer input" value="2" name="radAnswer"><?php echo $row['option3'];?>
                       </label>
                     </div>
                     <div class="bg-light rounded py-2 my-2 pl-2">
                       <label class="form-check-label normal-label">
-                        <input type="radio" class="mr-3" id="id_form-0-user_answer input" value="2" name="radAnswer">An eatery
+                        <input type="radio" class="mr-3" id="id_form-0-user_answer input" value="2" name="radAnswer"><?php echo $row['option4'];?>
                       </label>
                     </div>    
                 </div>

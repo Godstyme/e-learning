@@ -422,7 +422,7 @@
 
 
         public function displayQuestion($id){
-            $sql = "SELECT * FROM question WHERE id ='$id'";
+            $sql = "SELECT * FROM question WHERE examid ='$id'";
             $qry = $this->connection->prepare($sql);
             $exec = $qry->execute(array());
 

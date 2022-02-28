@@ -1,6 +1,7 @@
 <?php
 	require_once 'header.php';
   require_once '../server/classes/fetchData.php';
+  $fetchData = new fetchData;
 ?>
 
         <!-- Begin Page Content -->
@@ -37,11 +38,12 @@
                       <td name="cos[]"><?php echo $row['coursetitle'];?></td>
                       <td name="cos[]"><?php echo "+ ".$row['markperitque'];?></td>
                       <td name="cos[]"><?php echo "- ". $row['markperongque'];?></td>
-                      <form action="" method="post">
+                      <!-- <form action="" method="post"> -->
                         <td>
-                          <button type="submit" href="cbt.php?id=<?php echo $row['id']?>"  class="btn btn-success text-light btn-rounded waves-effect waves-light" name="btnAdd"> stat</button>
+                          <a href="cbt.php?id=<?php echo $row['id']?>" class="btn btn-success text-light btn-rounded waves-effect waves-light">Start</a>
+                          <!-- <button type="submit" href="cbt.php?id=<?php echo $row['id']?>"  class="btn btn-success text-light btn-rounded waves-effect waves-light" name="btnAdd"> stat</button> -->
                         </td>
-                      </form>
+                      <!-- </form> -->
                     </tr>
                   </tbody>
                   <?php $count+=1; } }}?>
