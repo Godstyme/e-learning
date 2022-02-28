@@ -20,9 +20,9 @@
 
                 ?>    
                 <label class="form-label">Select Course</label>
-                <select name="courseid" class="form-control form-control-line" required>
+                <select name="courseTitle" class="form-control form-control-line" required>
                   <?php  foreach($fetchResponse as $row){ ?>
-                    <option value="<?php echo $row['id']?>"><?php echo $row['coursetitle']?></option>
+                    <option value="<?php echo $row['coursetitle']?>"><?php echo $row['coursetitle']?></option>
                     <?php }?>
                 </select>
                 <?php 
@@ -32,7 +32,7 @@
             </div>
             <div class="mb-3">
               <label for="exampleFormControlTextarea1" class="form-label">Link</label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="link"></textarea>
             </div>
 
               <div class="form-group mt-3 text-center">
@@ -43,3 +43,20 @@
     </div>
   </div>
 </div>
+
+
+<?php
+
+require_once '../server/classes/insertData.php';
+$insertData = new insertData;
+
+  if (isset($_POST['btnAdd'])) {
+    $username = $_SESSION['email'];
+    $course = $_POST['courseTitle']; 
+    $link = $_POST['link'];  
+    $insertResponse =  $insertData->setLiveClass($username,$course,$link);
+    echo "<script>alert('Insert Successfull  Thank You !!')</script>";
+  } else {
+      // echo '<h4 style="color:red;margin-top:150px;margin-bottom:150px;text-align:center">  There was an error Updating the Transaction Data  <br> Please go back and try again.</h4>';;
+  }
+?>

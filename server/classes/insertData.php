@@ -137,9 +137,31 @@ class insertData extends DbConnection {
     }
 
     public function insertQuestion($examid,$questiontitle,$option1,$option2,$option3,$option4,$answer){
-        $sql = "INSERT INTO assignment (examid,option1, questiontitle,option2,option3,option4,answer) VALUES (:examid,:option1,:questiontitle,:option2,:option3,:option4,:answer)";
+        $sql = "INSERT INTO question (examid,option1, questiontitle,option2,option3,option4,correct) VALUES (:examid,:option1,:questiontitle,:option2,:option3,:option4,:correct)";
         $query = $this->connection->prepare($sql);
-        $exec = $query->execute(array(':questiontitle'=>$questiontitle,':examid'=>$examid,':option1'=>$option1,':option2'=>$option2,':option3'=>$option3,':option4'=>$option4,':answer'=>$answer));
+        $exec = $query->execute(array(':questiontitle'=>$questiontitle,':examid'=>$examid,':option1'=>$option1,':option2'=>$option2,':option3'=>$option3,':option4'=>$option4,':correct'=>$answer));
+        if ($query->errorCode()==0) {
+            return array('status'=>1);
+        }else{
+            return array('status'=>0, 'message'=>$query->errorInfo());
+        }
+    }
+
+    public function submitAssignment($user,$courseTitle,$courseCode,$assignment,$date){
+        $sql = "INSERT INTO subassign (user,coursetitle,coursecode, assignment,date) VALUES (:user,:coursetitle,:coursecode,:assignment,:date)";
+        $query = $this->connection->prepare($sql);
+        $exec = $query->execute(array(':user'=> $user, ':coursetitle'=>$courseTitle,':coursecode'=>$courseCode,':assignment'=>$assignment,':date'=>$date));
+        if ($query->errorCode()==0) {
+            return array('status'=>1);
+        }else{
+            return array('status'=>0, 'message'=>$query->errorInfo());
+        }
+    }
+
+    public function setLiveClass($user,$course,$link){
+        $sql = "INSERT INTO liveclass (user,course,link) VALUES (:user,:course,:link)";
+        $query = $this->connection->prepare($sql);
+        $exec = $query->execute(array(':user'=>$user,':course'=> $course, ':link'=>$link));
         if ($query->errorCode()==0) {
             return array('status'=>1);
         }else{

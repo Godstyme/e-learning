@@ -2,7 +2,7 @@
  require_once '../config/config.php';
   session_start();
   if (!isset($_SESSION['email']) && !isset($_SESSION['name']))  {
-    header("location:login.php");
+    header("location:../login.php");
     die("Sorry Your Session Has Expired, Please Visit The Login Page To Continue...");
   }
 ?>
@@ -79,11 +79,24 @@
         </div>
       </li>
       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTw5" aria-expanded="true" aria-controls="collapseTw5">
+          <i class="fas fa-fw fa-cog"></i>
+          <span>Manage Assignment</span>
+        </a>
+        <div id="collapseTw5" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Manage Courses:</h6>
+            <a class="collapse-item" href="viewassignment.php">View Assignment</a>
+            <a class="collapse-item" href="assignment.php">Submit Assignment</a>
+          </div>
+        </div>
+      </li>
+      <!-- <li class="nav-item">
         <a class="nav-link" href="assignment.php" >
           <i class="fas fa-fw fa-users"></i>
           <span>Submit Assignment</span>
         </a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" href="class.php" >
           <i class="fas fa-fw fa-users"></i>

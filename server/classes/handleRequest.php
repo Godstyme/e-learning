@@ -297,6 +297,50 @@
 			}
 		break;
 
+		case 'submitAssignment':
+			if ($_SERVER["REQUEST_METHOD"] == "POST") {
+				$coursetitle = $_POST['coursetitle'];
+				$coursecode = $_POST['coursecode'];
+				$username = $_SESSION['name'];
+	
+				// upload folder
+				$target_dir = "../../upload/";
+				$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+				$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+							 
+	
+				//Check if image file is a actual image or fake image
+				$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+					if($check == false) {	
+							$response = array('status'=>0,'input'=>"name",'message'=>"Invalid File Format");
+					}
+				// Allow certain file formats
+				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+				&& $imageFileType != "gif" && $imageFileType != "pdf") {
+						$response = array('status'=>0,'input'=>"name",'message'=>"Sorry, only JPG, JPEG, PDF, PNG & GIF files are allowed.");
+						
+				}
+				// Check file size
+				elseif ($_FILES["fileToUpload"]["size"] > 3000000) {
+						$response = array('status'=>0,'input'=>"name",'message'=>"Sorry, THe Image Is Too Large, Image Must Not Be More Than 3MB");
+					 
+				}
+				else { 
+					// insert datas into the table
+					$image = basename($_FILES["fileToUpload"]["name"]);
+					move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file);
+					$insertResponse = $insertData->submitAssignment($username,$coursetitle,$coursecode,$image,$date);
+
+						if ($insertResponse['status']) {
+							$response = array('status'=>1,'message'=>"Your submition was successful...");
+									
+						} else {
+							$response = array('status'=>0,'message'=>$insertResponse['message']);
+					}
+				}
+			}
+		break;
+
 		default:
 			$response = array("status"=>0,"message"=>"Invalid Request, please check what you're doing");
 		break;

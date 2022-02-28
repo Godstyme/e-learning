@@ -93,6 +93,6 @@
         $level = $_POST['level'];
         $updateResponse = $update->updateProfile($id,$faculty,$jambid,$dept,$phone,$level);
         echo "<script > alert('Update Successfull, Thank You !!.')</script>";
-        header("refresh: 1; url = https://www.geeksforgeeks.org/");
+        // header("refresh: 1; url = https://www.geeksforgeeks.org/");
     } 
 ?>

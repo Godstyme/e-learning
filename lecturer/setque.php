@@ -10,7 +10,7 @@ $fetchData = new fetchData;
           <div class="col col-lg-4 col-md-12">
             <div class="card card-body">
                 <p class="card-title text-center">Set Exam Question</p>
-                <form method="post" class="form-horizontal m-t-30" id="" action="">
+                <form method="post" class="form-horizontal m-t-30" action="">
                   <div class="form-group">        
                     <?php
                       $fetchResponse = $fetchData->displayAddExam();
@@ -111,17 +111,31 @@ $fetchData = new fetchData;
                               </tr>
                           </thead>
                           <tbody>
+                          <?php
+                            $fetchResponse = $fetchData->displayAllQuestions();
+                            if(is_array($fetchResponse) ){
+                              if(isset($fetchResponse['status'])){
+                                  '<div class="alert alert-danger">'.print_r($fetchResponse['message']).'</div>';
+                              }else {
+                                $count = 1;
+                                foreach($fetchResponse as $row){
+
+                          ?> 
                             <tr>
-                              <th scope="row">1</th>                              
+                              <th scope="row"><?php echo $count;?></th>                              
                               <th>Winter</th>
                               <td>Database Management</td>
-                              <td>What is database</td>
-                              <td>Fasting</td>
-                              <td>Porgramming</td>
-                              <td>Coding</td>
-                              <td>Storage</td>
-                              <td>Storage</td>
+                              <td><?php echo $row['questiontitle']?></td>
+                              <td><?php echo $row['option1']?></td>
+                              <td><?php echo $row['option2']?></td>
+                              <td><?php echo $row['option3']?></td>
+                              <td><?php echo $row['option4']?></td>
+                              <td><?php echo $row['correct']?></td>
                             </tr>
+                            <?php 
+                              $count+=1;
+                              }
+                            }}?>
                           </tbody>
                       </table>
                   </div>
@@ -136,6 +150,7 @@ $fetchData = new fetchData;
   require_once '../server/classes/insertData.php';
   if (isset($_POST['btnAdd'])){
     // $username = $_SESSION['id'];
+    $examid = $_POST['examname'];
     $questiontitle = $_POST['question'];
     $option1 = $_POST['option1'];
     $option2 = $_POST['option2'];
@@ -145,6 +160,7 @@ $fetchData = new fetchData;
     
 
     $insertData = new insertData;
+    // var_dump($insertData);
     $insertResponse =  $insertData->insertQuestion($examid,$questiontitle,$option1,$option2,$option3,$option4,$answer);
     echo "<script>alert('Successful')</script>";
   }

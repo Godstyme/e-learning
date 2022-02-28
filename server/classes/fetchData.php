@@ -328,5 +328,78 @@
                 return array('status'=>0, 'message'=>$query->errorInfo()); 
             }
         }
+
+
+        //  // display all courses and join for each student
+        public function displayAllocateCouseToStudent(){
+            $sql = "SELECT * FROM course AS a INNER JOIN courseallocation AS c ON a.id = c.courseid INNER JOIN lecturer AS l ON c.lecturerid = l.id WHERE l.id = '{$_SESSION["id"]}'";
+            $qry = $this->connection->prepare($sql);
+            $exec = $qry->execute(array());
+
+            if($qry->errorCode() == 0){
+                if ($qry->rowCount() > 0) {
+                    return $qry->fetchAll(PDO::FETCH_ASSOC);    
+                }else{
+                    return 0;
+                } 
+            }else{
+                return array('status'=>0, 'message'=>$qry->errorInfo()); 
+            }
+
+        }
+
+
+        // display All Lecturer from the database
+        public function displayAllQuestions(){
+            $sql = "SELECT * FROM question ORDER BY id";
+            $qry = $this->connection->prepare($sql);
+            $exec = $qry->execute(array());
+
+            if($qry->errorCode() == 0){
+                if ($qry->rowCount() > 0) {
+                    return $qry->fetchAll(PDO::FETCH_ASSOC);    
+                }else{
+                    return 0;
+                } 
+            }else{
+                return array('status'=>0, 'message'=>$qry->errorInfo()); 
+            }
+
+        }
+
+        //  // display all assignment and join for each student
+        public function displayAssignmentToStudent(){
+            $sql = "SELECT * FROM assignment ORDER BY id";
+            $qry = $this->connection->prepare($sql);
+            $exec = $qry->execute(array());
+
+            if($qry->errorCode() == 0){
+                if ($qry->rowCount() > 0) {
+                    return $qry->fetchAll(PDO::FETCH_ASSOC);    
+                }else{
+                    return 0;
+                } 
+            }else{
+                return array('status'=>0, 'message'=>$qry->errorInfo()); 
+            }
+
+        }
+
+        public function displayAssignment(){
+            $sql = "SELECT * FROM subassign ORDER BY id";
+            $qry = $this->connection->prepare($sql);
+            $exec = $qry->execute(array());
+
+            if($qry->errorCode() == 0){
+                if ($qry->rowCount() > 0) {
+                    return $qry->fetchAll(PDO::FETCH_ASSOC);    
+                }else{
+                    return 0;
+                } 
+            }else{
+                return array('status'=>0, 'message'=>$qry->errorInfo()); 
+            }
+
+        }
     }
 ?>
