@@ -1,5 +1,9 @@
 <?php
 	require_once 'header.php';
+  require_once '../server/classes/fetchData.php';
+  $id = $_GET['id'];
+  $fetchData = new fetchData;
+  $fetchResponse = $fetchData->displayQuestion($id);
 ?>
 
         <!-- Begin Page Content -->
@@ -12,6 +16,14 @@
             <p>Please ensure you choose your answers correctly as any wrong choice can not be reversed after Submission.</p>
           </div>
           <div class="col-lg-8 offset-lg-2 mt-4">
+            <?php
+              if(is_array($fetchResponse)){
+                if(isset($fetchResponse['status'])){
+                    '<div class="alert alert-danger">'.print_r($fetchResponse['message']).'</div>';
+                }else {
+                    foreach($fetchResponse as $row){
+
+            ?>
             <form action="" method="post">
               <div class="mb-3 px-3 py-2 Regular shadow rounded border border-dark" style="background: #fff;">
                 <p style="font-weight: bolder;font-size:larger;">
@@ -61,6 +73,7 @@
                 </div>
               </div>
             </form>  
+            <?php }}} ?>
           </div>
 
         </div>

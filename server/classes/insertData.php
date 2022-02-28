@@ -168,5 +168,16 @@ class insertData extends DbConnection {
             return array('status'=>0, 'message'=>$query->errorInfo());
         }
     }
+
+    public function setInsertExamUserDetail($useremail,$examid){
+        $sql = "INSERT INTO exam_enroll (useremail,examid) VALUES (:useremail,:examid)";
+        $query = $this->connection->prepare($sql);
+        $exec = $query->execute(array(':useremail'=>$useremail,':examid'=> $examid));
+        if ($query->errorCode()==0) {
+            return array('status'=>1);
+        }else{
+            return array('status'=>0, 'message'=>$query->errorInfo());
+        }
+    }
 }
 ?>
