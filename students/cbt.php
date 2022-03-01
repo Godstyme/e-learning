@@ -12,7 +12,7 @@
 
           <!-- Page Heading -->
           <div class="text-center">
-            <h3>Take Exam</h3>
+            <h3>Take Quiz</h3>
             <h4>Answer Correctly the Questions</h4>
             <p>Please ensure you choose your answers correctly as any wrong choice can not be reversed after Submission.</p>
           </div>
@@ -22,13 +22,14 @@
                 if(isset($fetchResponse['status'])){
                     '<div class="alert alert-danger">'.print_r($fetchResponse['message']).'</div>';
                 }else {
+                    $count = 1;
                     foreach($fetchResponse as $row){
                       // var_dump($fetchResponse);
             ?>
             <form action="" method="post">
               <div class="mb-3 px-3 py-2 Regular shadow rounded border border-dark" style="background: #fff;">
                 <p style="font-weight: bolder;font-size:larger;">
-                  1.&nbsp;&nbsp;<?php echo $row['questiontitle'];?>
+                <?php echo $count; ?>.&nbsp;&nbsp;<?php echo $row['questiontitle'];?>
                 </p>
                 <div class="form-check px-1">
                     <div class="bg-light rounded py-2 my-2 pl-2">
@@ -74,7 +75,7 @@
                 </div>
               </div>
             </form>  
-            <?php }}} ?>
+            <?php $count+=1; }}} ?>
           </div>
 
         </div>
