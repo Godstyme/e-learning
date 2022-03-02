@@ -199,6 +199,85 @@ $(document).ready(function($) {
           console.log(error);
         })
       })
+
+
+
+
+      $('#uploadImage').submit(function(event) {
+        event.preventDefault();
+            var formUpload = document.getElementById("uploadImage");
+            $.ajax({
+                url : '../server/classes/handleRequest.php?_mode=uploadImage',
+                type: "POST",
+                cache: false,
+                async: false,
+                contentType: false,
+                processData: false,
+                data :  new FormData(formUpload),
+                dataType : 'json'
+        })
+        .done(function (response) {
+          if(response.status==0){
+              $("#errorMessage").addClass('alert alert-danger');
+              $("#errorMessage").html(response.message);
+              window.location.reload(); 
+          }
+          else if (response.status == 1) {
+              $("#errorMessage").removeClass('alert alert-danger');
+              $("#errorMessage").addClass('alert alert-success');
+              $("#errorMessage").html(response.message);
+              setTimeout(function() {
+                window.location.reload(); 
+              }, 2000)
+
+          }else{
+              $("#errorMessage").addClass('alert alert-danger');
+              $("#errorMessage").html("Please Check What You Are Doing Or Contact Site Admin");    
+              window.location.reload();               
+          }
+        })
+        .fail(function (error) {
+          console.log(error);
+        })
+      })
+
+      $('#uploadMedia').submit(function(event) {
+        event.preventDefault();
+            var formUpload = document.getElementById("uploadMedia");
+            $.ajax({
+                url : '../server/classes/handleRequest.php?_mode=uploadMedia',
+                type: "POST",
+                cache: false,
+                async: false,
+                contentType: false,
+                processData: false,
+                data :  new FormData(formUpload),
+                dataType : 'json'
+        })
+        .done(function (response) {
+          if(response.status==0){
+              $("#errorMessage").addClass('alert alert-danger');
+              $("#errorMessage").html(response.message);
+              window.location.reload(); 
+          }
+          else if (response.status == 1) {
+              $("#errorMessage").removeClass('alert alert-danger');
+              $("#errorMessage").addClass('alert alert-success');
+              $("#errorMessage").html(response.message);
+              setTimeout(function() {
+                window.location.reload(); 
+              }, 2000)
+
+          }else{
+              $("#errorMessage").addClass('alert alert-danger');
+              $("#errorMessage").html("Please Check What You Are Doing Or Contact Site Admin");    
+              window.location.reload();               
+          }
+        })
+        .fail(function (error) {
+          console.log(error);
+        })
+      })
    
 
 })

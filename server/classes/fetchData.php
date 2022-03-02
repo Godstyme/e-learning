@@ -454,5 +454,57 @@
             }
 
         }
+
+
+        public function displayStudents(){
+            $sql = "SELECT * FROM student ORDER BY id";
+            $qry = $this->connection->prepare($sql);
+            $exec = $qry->execute(array());
+
+            if($qry->errorCode() == 0){
+                if ($qry->rowCount() > 0) {
+                    return $qry->fetchAll(PDO::FETCH_ASSOC);    
+                }else{
+                    return 0;
+                } 
+            }else{
+                return array('status'=>0, 'message'=>$qry->errorInfo()); 
+            }
+
+        }
+
+        public function displayRes(){
+            $sql = "SELECT * FROM document ORDER BY id";
+            $qry = $this->connection->prepare($sql);
+            $exec = $qry->execute(array());
+
+            if($qry->errorCode() == 0){
+                if ($qry->rowCount() > 0) {
+                    return $qry->fetchAll(PDO::FETCH_ASSOC);    
+                }else{
+                    return 0;
+                } 
+            }else{
+                return array('status'=>0, 'message'=>$qry->errorInfo()); 
+            }
+
+        }
+
+        public function displayMedia(){
+            $sql = "SELECT * FROM media ORDER BY id";
+            $qry = $this->connection->prepare($sql);
+            $exec = $qry->execute(array());
+
+            if($qry->errorCode() == 0){
+                if ($qry->rowCount() > 0) {
+                    return $qry->fetchAll(PDO::FETCH_ASSOC);    
+                }else{
+                    return 0;
+                } 
+            }else{
+                return array('status'=>0, 'message'=>$qry->errorInfo()); 
+            }
+
+        }
     }
 ?>

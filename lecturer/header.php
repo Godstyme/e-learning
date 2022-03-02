@@ -52,7 +52,7 @@
                               <i class="fas fa-plus-circle"></i><span class="ms-1 d-none d-sm-inline">Manage Lecture Material</span>
                             </a>
                             <div class="dropdown-menu">
-                                <a href="index.php?a=register&b=course" class="dropdown-item text-dark">Media</a>
+                                <a href="index.php?a=media&b=med" class="dropdown-item text-dark">Media</a>
                                 <a href="index.php?a=registered&b=course" class="dropdown-item">Document</a>
                             </div>
                           </li>
@@ -81,7 +81,7 @@
                             </div>
                           </li>
                           <li>
-                            <a href="index.php?a=assignment&b=homework" class="nav-link px-sm-0 px-2 text-dark">
+                            <a href="index.php?a=stud&b=student" class="nav-link px-sm-0 px-2 text-dark">
                               <i class="fas fa-users"></i><span class="ms-1 d-none d-sm-inline">View Students List</span> 
                             </a>
                           </li>
@@ -120,13 +120,17 @@
                                 }else if($_GET["a"] === "setx" && $_GET["b"] === "exam"){
                                   include_once("setexam.php");
                                 }else if($_GET["a"] === "registered" && $_GET["b"] === "course"){
-                                    include_once("registered.php");
+                                    include_once("doc.php");
+                                }else if($_GET["a"] === "media" && $_GET["b"] === "med"){
+                                  include_once("media.php");
                                 }else if($_GET["a"] === "setassign" && $_GET["b"] === "sethome"){
                                       include_once("assignment.php");
                                 }else if($_GET["a"] === "quiz" && $_GET["b"] === "cbt"){
                                   include_once("quiz.php");
                                 }else if($_GET["a"] === "setq" && $_GET["b"] === "question"){
                                   include_once("setque.php");
+                                }else if($_GET["a"] === "stud" && $_GET["b"] === "student"){
+                                  include_once("student.php");
                                 }else{
                                   include_once("index.php");
                                 }

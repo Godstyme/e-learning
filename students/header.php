@@ -119,7 +119,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Quiz:</h6>
             <a class="collapse-item" href="quiz.php">Take Quiz</a>
-            <a class="collapse-item" href="viewadmins.php">View Admin</a>
+            <!-- <a class="collapse-item" href="viewadmins.php">View Admin</a> -->
           </div>
         </div>
       </li>

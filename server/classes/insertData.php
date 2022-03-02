@@ -179,5 +179,28 @@ class insertData extends DbConnection {
             return array('status'=>0, 'message'=>$query->errorInfo());
         }
     }
+
+
+    public function uploadFile($user,$course,$image){
+        $sql = "INSERT INTO document (user,course,image) VALUES (:user,:course,:image)";
+        $query = $this->connection->prepare($sql);
+        $exec = $query->execute(array(':user'=> $user, ':course'=>$course,':image'=>$image));
+        if ($query->errorCode()==0) {
+            return array('status'=>1);
+        }else{
+            return array('status'=>0, 'message'=>$query->errorInfo());
+        }
+    }
+
+    public function uploadMedia($user,$course,$file){
+        $sql = "INSERT INTO media (user,course,file) VALUES (:user,:course,:file)";
+        $query = $this->connection->prepare($sql);
+        $exec = $query->execute(array(':user'=> $user, ':course'=>$course,':file'=>$file));
+        if ($query->errorCode()==0) {
+            return array('status'=>1);
+        }else{
+            return array('status'=>0, 'message'=>$query->errorInfo());
+        }
+    }
 }
 ?>
